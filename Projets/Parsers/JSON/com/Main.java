@@ -5,30 +5,34 @@ public class Main {
 
     public static void testJSONObject() {
         JSONObject json = new JSONObject();
+        JSONArray array = new JSONArray();
+        
+        // json.put("cars", array);
+        // System.out.println(json.toString(2));
+        JSONObject o = new JSONObject()
+            .put("name", "Ford")
+            .put("models", new JSONArray()
+                .put("Fiesta").put("Focus").put("Mustang")
+            );
+        
+        array.put(o);
+        json.put("cars", array);
 
-        JSONObject person = new JSONObject();
-        person.put("lastname", "Terbah");
-        person.put("firstname", "Dorian");
-        person.put("age", 20);
-        json.put("person", person);
 
-        JSONObject o = new JSONObject();
-        o.put("hish", "toto");
-        o.put("xx", "dldld");
-        o.put("x", 10);
-
-        json.put("data", o);
-
-        System.out.println(json);
+        System.out.println(json.toString(2));
     }
 
     public static void testJSONArray() {
         JSONArray array = new JSONArray();
-        array.put("toto").put("titi");
+
+        JSONObject o = new JSONObject().put("toto", "titi").put("tutu", true).put("hhh", 10.0);
+        array.put(o);
+        array.put(o);
         System.out.println(array.toString(2));
+
     }
 
     public static void main(String[] args) {
-        testJSONArray();
+        testJSONObject();
     }
 }

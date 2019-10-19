@@ -1,76 +1,43 @@
 package com.json;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class JSONArray extends JSONObject {
 
-    private List<Object> elements;
-
     public JSONArray() {
         super();
-        this.elements = new ArrayList<Object>();
     }
 
     public JSONArray put(String value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, value, false));
-        return this;
-    }
-
-    public JSONArray put(Object value) {
-        String key = this.generateSiblingsKey();
-        String str = new StringBuilder().append(value).toString();
-        this.siblings.add(new JSONNode(this.depth, key, str, false));
-        System.out.println("ok");
-        return this;
-    }
-
-    public JSONArray put(boolean value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, Boolean.toString(value), false));
-        return this;
-    }
-
-    public JSONArray put(float value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, Float.toString(value), false));
-        return this;
-    }
-
-    public JSONArray put(double value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, Double.toString(value), false));
-        return this;
-    }
-
-    public JSONArray put(long value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, Long.toString(value), false));
-        return this;
-    }
-
-    public JSONArray put(int value) {
-        String key = this.generateSiblingsKey();
-        this.siblings.add(new JSONNode(this.depth, key, Integer.toString(value), false));
+        String key = this.generateChildrenKey();
+        this.elements.put(key, new JSONNode(value));
         return this;
     }
 
     public JSONArray put(JSONObject value) {
         String key = this.generateChildrenKey();
-        this.children.put(key, value);
+        this.elements.put(key, value);
+        value.updateDepth(this.depth + 1);
         return this;
     }
 
-    private String generateSiblingsKey() {
-        return Integer.toString(this.siblings.size());
+    public JSONArray put(Number value) {
+        StringBuffer buffer = new StringBuffer().append(value);
+        String key = this.generateChildrenKey();
+        this.elements.put(key, new JSONNode(buffer.toString()));
+        this.updateDepth();
+        return this;
+    }
+
+    public JSONArray put(boolean value) {
+        String key = this.generateChildrenKey();
+        this.elements.put(key, new JSONNode(Boolean.toString(value)));
+        return this;
     }
 
     private String generateChildrenKey() {
-        return Integer.toString(this.children.size());
+        return Integer.toString(this.elements.size());
     }
-
 
     @Override
     public String toString() {
@@ -79,26 +46,32 @@ public class JSONArray extends JSONObject {
 
     @Override
     public String toString(int shift) {
-        String result = "[";
-        int i, size;
+        this.buffer = "[";
+        shift *= this.depth;
 
         // children
-        JSONObject json;
-        for(Map.Entry<String, JSONObject> entry : this.children.entrySet()) {
+        AbstractJSON json;
+        int i = 0, limit = this.elements.size() - 1;
+        boolean isJSONObject;
+        
+        for(Map.Entry<String, AbstractJSON> entry : this.elements.entrySet()) {
             json = entry.getValue();
-            result += json.toString(shift) + ",\n";            
+            isJSONObject = json instanceof JSONObject;
+            if(isJSONObject) this.buffer += "\n"; 
+
+            this.buffer += json.toString(shift);
+            if(i != limit) this.buffer += ",";
+            else {
+                if(isJSONObject) this.buffer += "\n";
+            }
+
+            i++; 
         }
 
-        // siblings
-        IJSON node;
-        size = this.siblings.size();
-        for(i = 0; i < size; i++) {
-            node = this.siblings.get(i);
-            result += node.toString();
-            if(i != (size - 1)) result += ",";
-        }
+        this.buffer += "]";
 
-        result += "]";
+        String result = new String(this.buffer);
+        this.buffer = ""; // clean the buffer
         return result;
     }
 }
