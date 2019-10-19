@@ -1,0 +1,64 @@
+DS Algorithmique - 3IFA - mercredi 10 octobre 2018
+--------------------------------------------------
+
+Contraintes
+-----------
+Les solutions au DS sont validées via la plateforme domjudge. Chaque élève a 
+son propre login et son propre mot de passe. Vous pouvez envoyer plusieurs 
+fois une solution pour un même problème sans aucune pénalité.
+
+Vous avez le droit aux supports des cours, TD, TP et aussi à des ressources 
+Internet, mais vous n'avez pas le droit de communiquer avec d'autres personnes. 
+La DSI sauvegarde tout le trafic TCP/IP pendant le DS. Vous pouvez utiliser 
+seulement le protocole http pour accéder aux différents sites Web. Une 
+connexion à un outil de messagerie, réseau social etc invalide automatiquement
+votre participation au DS avec les conséquences prévues par le règlement des 
+études.
+
+Vous pouvez utiliser le langage C ou le C++, mais sans utiliser la STL. 
+
+Problème 1 : Cryptarithme
+------------------------------
+
+Dans le cryptarithme suivant, chaque lettre correspond à un chiffre différent :
+
+  RED
++DEER
+-----
+SUSAN
+
+Trouvez les valeurs possibles pour SUSAN.
+
+Format en entrée
+----------------
+
+Il n'y a pas d'entrée pour ce probleme.
+
+Format en sortie
+----------------
+
+La sortie standard affichera les valeurs possibles pour SUSAN (nombres de 5 chiffres), une valeur par ligne.
+Si plusieurs solutions sont possibles, l'ordre n'a pas d'importance.
+Chaque solution sera finalisée par un retour à la ligne de type "\r\n". 
+
+Entrées-sorties
+---------------
+
+Pour afficher un entier suivi d'un fin de ligne :
+   #include <stdio.h>
+   int val;
+   ...
+   printf("%d\r\n",val);
+
+Pour afficher plusieurs entiers (sans séparateur) suivis d'un fin de ligne :
+   #include <stdio.h>
+   int val1 = 2;
+   int val2 = 3;
+   ...
+   printf("%d%d\r\n",val1, val2);
+
+Observation
+-----------
+Ne pas oublier la ligne :
+	return 0;
+dans votre fonction main !

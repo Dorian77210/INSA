@@ -1,0 +1,58 @@
+ 
+<!--  https://skebir.developpez.com/tutoriels/java/ant!-->
+<project name="JSON-Parser" default="run" basedir=".">
+
+    <!-- DIRS OF THE PROJECT !-->
+    <property name="com" location="com" />
+
+    <property name="bin" location="bin" />
+
+    <property name="javadoc" location="javadoc" />
+
+    <property name="exe" location="exe"/>
+
+    <target name="clean">
+        <delete dir="bin" />
+        <delete dir="javadoc" />
+        <delete dir="exe" />
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${bin}" />
+        <mkdir dir="${javadoc}" />
+        <mkdir dir="${exe}" />
+
+        <javac srcdir="${com}" destdir="${bin}">
+            <classpath>
+                <!-- <pathelement path="libs/json.jar" /> -->
+                <!-- <pathelement path="libs/mariadb-java-client-2.3.0.jar" /> -->
+            </classpath>
+        </javac>
+        <antcall target="jar" />
+    </target>
+
+    <target name="jar">
+        <jar destfile="${exe}/JSON.jar" basedir="${bin}">
+            <!-- <zipgroupfileset dir="libs" includes="*.jar" excludes="" /> -->
+
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile">
+        <java jar="exe/JSON.jar" fork="true">
+            <!-- <arg value="-cp json.jar"/> -->
+        </java>
+    </target>
+
+    <target name="javadoc" depends="compile">
+        <delete dir="javadoc"/>
+        <mkdir dir="javadoc"/>
+        <javadoc destdir="javadoc">
+            <fileset dir="${src}"/>
+        </javadoc>
+    </target>
+
+</project>

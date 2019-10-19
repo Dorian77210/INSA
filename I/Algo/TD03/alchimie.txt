@@ -1,0 +1,95 @@
+DS Algorithmique - 3IF - jeudi 9 novembre 2017
+--------------------------------------------------
+
+Contraintes
+-----------
+Les solutions au DS sont validées via la plateforme domjudge. Chaque élève a 
+son propre login et son propre mot de passe. Vous pouvez envoyer plusieurs 
+fois une solution pour un même problème sans aucune pénalité.
+
+Vous avez le droit aux supports des cours, TD, TP et aussi à des ressources 
+Internet, mais vous n'avez pas le droit de communiquer avec d'autres personnes. 
+La DSI sauvegarde tout le trafic TCP/IP pendant le DS. Vous pouvez utiliser 
+seulement le protocole http pour accéder aux différents sites Web. Une 
+connexion à un outil de messagerie, réseau social etc invalide automatiquement
+votre participation au DS avec les conséquences prévues par le règlement des 
+études.
+
+Vous pouvez utiliser le langage C ou le C++, mais sans utiliser la STL. 
+
+Problème 2 : L'alchimie
+-----------------------------------
+
+Nous avons à notre disposition un récipient de volume V. Dans ce récipient se trouvent 
+une substance en volumes S. Une expérience est réalisée dans ce récipient, en appliquant 
+successivement plusieurs procédées/opérations sur le contenu du récipient. Chaque 
+opération a un effet sur le volume de la substance disponible (diminution ou augmentation), 
+mais à un aucun moment le volume de la substance ne peux dépasser le volume du récipient. 
+Les opérations possibles :
+-	Op 1 : la substance arrive à un volume 3*S 
+-	Op 2 : la substance arrive à un volume 2*S 
+-	Op 3 : la substance arrive à un volume [S/5], où [x] représente le plus grand 
+entier inferieur ou égal à x.
+Quel est le volume maximal de substance que vous pouvez obtenir dans le récipient, en 
+combinant les trois opérations ?
+Contraintes : 0 <= S <= V <= 20000
+
+
+Format en entrée
+----------------
+
+L'entrée standard sera composée d'une série de nombres séparés par des retours à 
+la ligne :
+- le volume V ;
+- le volume S ;
+Le format en entrée est respecté, vous n'avez pas à faire de test pour le vérifier. 
+Les contraintes pour les différentes entrées sont également respectées, pas de vérification à faire.
+
+Format en sortie
+----------------
+La sortie : Volume maximal atteint (entier).
+La ligne de sortie sera finalisée par un retour à la ligne de type "\r\n". 
+
+Exemple 1
+-----------
+Entrée :
+10
+7
+
+Sortie :
+9
+
+Observation : la sortie corresponde à l'application des opérations 3, 1 et 1 
+
+Exemple 2
+-----------
+Entrée :
+20
+6
+
+Sortie :
+18
+
+Observation : la sortie corresponde à l'application de l'opération 1 
+
+
+Entrées-sorties
+---------------
+
+Pour lire un entier sur l'entrée standard, vous pouvez utiliser le code suivant :
+   #include <stdio.h>
+   int n;
+   fscanf(stdin,"%d",&n);
+
+Pour afficher un entier n suivi d'un fin de ligne :
+   #include <stdio.h>
+   int n;
+   ...
+   printf("%d\r\n", n);
+
+
+Observation
+-----------
+Ne pas oublier la ligne :
+	return 0;
+dans votre fonction main !

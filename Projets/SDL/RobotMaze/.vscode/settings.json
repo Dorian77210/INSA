@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "sdl.h": "c",
+        "zlib.h": "c",
+        "png.h": "c",
+        "stdio.h": "c",
+        "core.h": "c",
+        "stdlib.h": "c",
+        "sdl_main.h": "c",
+        "window-controller.h": "c",
+        "level.h": "c"
+    }
+}

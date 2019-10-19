@@ -1,0 +1,33 @@
+Partie III)
+	I - Montage
+1) Pour voir la liste de toutes les partitions, il faut faire la commande suivante : sudo fdisk -l
+2) Pour avoir la liste des different montages : mount
+Le fichier où sont donnés les différents montages est : /etc/fstab
+/home est sur la partition /dev/sda1 et /machines_virtuelles est sur la partition /dev/sda2
+3) Les différents types de montages sont :
+	- swap : montages utilisés pour faire le lien entre la ram et le disque 
+	- ext4 : 
+	- xfs : 
+	- vfat :
+
+4) Le fichier /etc/fstabs nous donne les types de formatages des différents points de montage
+   La commande mount permet d'insérer une partition sur la racine 
+   La commande unmount permet de faire le contraire (cad de retirer une partition)
+
+	II - Droits d'accès
+1) Création d'un repertoire (mkdir test) puis chmod 400 test. La seule chose que l'on puisse faire avec ce mode est de voir ce qui se trouve dans ce repertoire (ls test)
+2) Création d'un repertoire (mkdir w-test) puis chmod 222 w-test. La seule chose que l'on puis faire avec ce mode est de créer des fichier 
+3) Le droit d'execution sur un repertoire permets de naviguer dedans et donc de créer des fichiers et repertoires 
+4) Un fichier avec comme seul droit "ecriture" peut etre modifier mais pas lu
+6) Pour mettre le sticky : chmod 1666 file
+Apres les droits, on peut donner une autre pair bits qui signifient :
+	- setuid : ce bit permet d'utiliser les droits du propriétaire du programme (valeur a 4)
+	- setgid : ce bit permet d'utiliser les droits du groupe du programme (valeur a 2)
+	- sticky bit : ce bit permet d'eviter aux utilisateurs de supprimer seulement leurs fichiers
+7) Il n'y a aucune difference entre les flags t et T, ils correpondent tous les deux au sticky bit
+8) Il n'y a aucune difference entre les flags s et S, ils correpondent aux droits du groupe utilisé pour un programme setgid, setuid -> s = x deja present, S si y a pas x
+Pareil pour t et T
+9) chmod  <path>
+10) 
+
+

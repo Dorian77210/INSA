@@ -1,0 +1,100 @@
+DS Algorithmique - 3IF - mercredi 30 novembre 2016
+--------------------------------------------------
+
+Contraintes
+-----------
+Les solutions au DS sont validées via la plateforme domjudge. Chaque élève a 
+son propre login et son propre mot de passe. Vous pouvez envoyer plusieurs 
+fois une solution pour un même problème sans aucune pénalité.
+
+Vous avez le droit aux supports des cours, TD, TP et aussi à des ressources 
+Internet, mais vous n'avez pas le droit de communiquer avec d'autres personnes. 
+La DSI sauvegarde tout le trafic TCP/IP pendant le DS. Vous pouvez utiliser 
+seulement le protocole http pour accéder aux différents sites Web. Une 
+connexion à un outil de messagerie, réseau social etc invalide automatiquement
+votre participation au DS avec les conséquences prévues par le règlement des 
+études.
+
+Vous pouvez utiliser le langage C ou le C++, mais sans utiliser la STL. 
+
+Problème 2 : transport optimal
+------------------------------
+
+Le département IF souhaite transporter les élèves 3IF et 4IF à une manifestation 
+organisée par l'une des entreprises partenaires du département. Pour le transport 
+le département a loué un camion qui peut transporter au maximum un certain poids
+à chaque transport. En même temps les transports doivent être organisés d'une telle
+manière que les 3IF et les 4IF ne soient pas mélangés pendant le transport (un transport 
+ne peut prendre des 3IF et des 4IF au même moment).
+
+Pour le premier voyage le département souhaite charger au mieux le camion, en
+prenant le plus de poids possible.
+
+Connaissant la capacité (en kg) du camion, le poids de chaque élève et son appartenance
+à la 3IF ou la 4IF, vous devez déterminer quelle est la promotion concernée par le premier
+transport (3IF ou 4IF ?) pour qu'il soit optimal (le plus chargé en respectant la charge limite). 
+Un élève ne peut pas appartenir à la 3IF et à la 4IF en même temps.
+
+Format en entrée
+----------------
+
+L'entrée standard sera composée d'une série de nombres séparés par des retours à 
+la ligne :
+- un nombre entier positif ou nul indiquant la capacité du camion (noté C par la suite, C<5000)
+- un nombre entier positif ou nul indiquant le nombre d'élèves (noté n par la suite, n<100)
+- n lignes comprenant deux entiers séparés par espace, le premier représente le poids
+de l'élève et le deuxième peut être 3 ou 4 (décrivant la promotion : 3IF ou 4IF).
+Le format en entrée est respecté, vous n'avez pas à faire de test pour le vérifier.
+
+Format en sortie
+----------------
+
+La sortie standard affichera la promotion d'élèves concernée comme nombre entier 
+(3 ou 4), sur une seule ligne.
+Cette ligne sera finalisée par un retour à la ligne de type rn. Dans le cas ou nous ne
+pouvons pas partager les deux promotions IF (solution identique pour les deux), vous devez 
+afficher les deux nombres entiers séparés par un espace (3 et 4 séparés par espace).
+
+
+Entrées-sorties
+---------------
+
+Pour lire un entier sur l'entrée standard, vous pouvez utiliser le code suivant :
+   #include <stdio.h>
+   int n;
+   fscanf(stdin,%d,&n);
+
+Pour lire deux entiers sur l'entrée standard, vous pouvez utiliser le code suivant :
+   #include <stdio.h>
+   int a, b;
+   fscanf(stdin,%d %d,&a &b);
+
+Pour afficher un entier suivi d'un fin de ligne :
+   #include <stdio.h>
+   int val;
+   ...
+   printf(%drn,val);
+
+Observation
+-----------
+Ne pas oublier la ligne :
+	return 0;
+dans votre fonction main !
+   
+Exemple
+-------
+Entrée :
+200
+7
+50 3
+50 3
+70 4
+60 3
+70 3
+100 4
+69 4
+
+Sortie :
+3
+
+

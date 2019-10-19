@@ -1,0 +1,104 @@
+DS Algorithmique - 3IF - jeudi 1er décembre 2016
+--------------------------------------------------
+
+Contraintes
+-----------
+Les solutions au DS sont validées via la plateforme domjudge. Chaque élève a 
+son propre login et son propre mot de passe. Vous pouvez envoyer plusieurs 
+fois une solution pour un même problème sans aucune pénalité.
+
+Vous avez le droit aux supports des cours, TD, TP et aussi à des ressources 
+Internet, mais vous n'avez pas le droit de communiquer avec d'autres personnes. 
+La DSI sauvegarde tout le trafic TCP/IP pendant le DS. Vous pouvez utiliser 
+seulement le protocole http pour accéder aux différents sites Web. Une 
+connexion à un outil de messagerie, réseau social etc invalide automatiquement
+votre participation au DS avec les conséquences prévues par le règlement des 
+études.
+
+Vous pouvez utiliser le langage C ou le C++, mais sans utiliser la STL. 
+
+Problème 2 : couleur optimale
+------------------------------
+
+Pour réaliser une expérience, nous avons à notre disposition un récipient de taille C (en grammes)
+et deux substances (Type 1 et Type 2, de couleur verte). Ces substances sont disponibles en fioles de taille 
+connue (en grammes), pas forcement égales. Si les deux substances se mélangent dans
+le même récipient (S1 grammes de Type 1 et S2 grammes de Type 2), nous obtenons une substance 
+rouge en quantité de 2*min(S1, S2) et pour le reste la substance la plus représentée reste inchangée (verte).
+Notre objectif est de trouver quelle est la quantité maximale de substance rouge nous pouvons obtenir 
+dans le récipient, en sachant que toute fiole ouverte doit être complètement vidée dans le récipient, et le 
+récipient ne doit pas déborder.
+
+Format en entrée
+----------------
+
+L'entrée standard sera composée d'une série de nombres séparés par des retours à 
+la ligne :
+- un nombre entier positif ou nul indiquant la capacité du récipient (noté C par la suite, C<2500)
+- un nombre entier positif ou nul indiquant le nombre de fioles (noté n par la suite, n<20)
+- n lignes comprenant deux entiers séparés par espace, le premier représente le poids
+de la fiole et le deuxième peut être 1 ou 2 (décrivant le type de substance).
+Le format en entrée est respecté, vous n'avez pas à faire de test pour le vérifier.
+
+Format en sortie
+----------------
+
+La sortie standard affichera la quantité maximale de substance rouge qui peut être obtenue, sur une seule ligne.
+Cette ligne sera finalisée par un retour à la ligne de type rn. 
+
+
+Entrées-sorties
+---------------
+
+Pour lire un entier sur l'entrée standard, vous pouvez utiliser le code suivant :
+   #include <stdio.h>
+   int n;
+   fscanf(stdin,%d,&n);
+
+Pour lire deux entiers sur l'entrée standard, vous pouvez utiliser le code suivant :
+   #include <stdio.h>
+   int a, b;
+   fscanf(stdin,%d %d,&a, &b);
+
+Pour afficher un entier suivi d'un fin de ligne :
+   #include <stdio.h>
+   int val;
+   ...
+   printf(%drn,val);
+
+Observation
+-----------
+Ne pas oublier la ligne :
+	return 0;
+dans votre fonction main !
+   
+Exemple 1
+-------
+Entrée :
+200
+7
+50 1
+50 1
+70 2
+60 1
+70 1
+90 2
+60 2
+
+Sortie (solution composée d'une fiole de type 2 de poids 90 et peu importe quelle combinaison de type 1 
+inferieure ou égale à 110) :
+180
+
+Exemple 2
+-------
+Entrée :
+100
+4
+30 1
+30 2
+30 1
+40 2
+
+Sortie (solution composée d'une fiole de type 2 de poids 40 et les deux fioles de type 1 de poids 30) :
+80
+
