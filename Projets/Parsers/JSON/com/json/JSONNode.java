@@ -5,47 +5,63 @@ class JSONNode implements IJSON {
     private String key;
     private String value;
     private int depth;
+    private boolean isPairKeyValue;
 
     JSONNode(int depth) {
         this.key = "";
         this.value = "";
         this.depth = depth;
+        this.isPairKeyValue = true;
+        
     }
 
-    @Override
-    public void put(String key, String value) {
+    JSONNode(int depth, String key, String value, boolean isPairKeyValue) {
+        this.depth = depth;
         this.key = key;
         this.value = value;
+        this.isPairKeyValue = isPairKeyValue;
     }
 
     @Override
-    public void put(String key, boolean value) {
+    public JSONNode put(String key, String value) {
+        this.key = key;
+        this.value = value;
+        return this;
+    }
+
+    @Override
+    public JSONNode put(String key, boolean value) {
         this.key = key;
         this.value = Boolean.toString(value);
+        return this;
     }
 
     @Override
-    public void put(String key, int value) {
+    public JSONNode put(String key, int value) {
         this.key = key;
         this.value = Integer.toString(value);
+        return this;
     }
 
     @Override
-    public void put(String key, long value) {
+    public JSONNode put(String key, long value) {
         this.key = key;
         this.value = Long.toString(value);
+        return this;
     }
 
     @Override
-    public void put(String key, float value) {
+    public JSONNode put(String key, float value) {
         this.key = key;
         this.value = Float.toString(value);
+        return this;
     }
 
     @Override
-    public void put(String key, double value) {
+    public JSONNode put(String key, double value) {
         this.key = key;
         this.value = Double.toString(value);
+        return this;
     }
 
 
@@ -53,8 +69,6 @@ class JSONNode implements IJSON {
     public void updateDepth(int depth) {
         this.depth = depth;
     }
-
-
 
     @Override
     public String getString(String key) {
@@ -82,7 +96,9 @@ class JSONNode implements IJSON {
             result += " ";
         }
 
-        result += "\"" + this.key + "\"" + ": " + this.value;
+        result += (this.isPairKeyValue) 
+                ? "\"" + this.key + "\"" + ": " + this.value
+                : "\"" + this.value + "\""; 
         return result;
     }
 }

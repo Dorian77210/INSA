@@ -1,4 +1,5 @@
 import com.json.JSONObject;
+import com.json.JSONArray;
 
 public class Main {
 
@@ -21,7 +22,13 @@ public class Main {
         System.out.println(json);
     }
 
+    public static void testJSONArray() {
+        JSONArray array = new JSONArray();
+        array.put("toto").put("titi");
+        System.out.println(array.toString(2));
+    }
+
     public static void main(String[] args) {
-        testJSONObject();
+        testJSONArray();
     }
 }

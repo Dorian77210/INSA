@@ -8,66 +8,75 @@ import java.util.Set;
 
 public class JSONObject implements IJSON {
 
-    private static final int DEFAULT_SHIFT = 1;
+    protected static final int DEFAULT_SHIFT = 1;
 
-    private Map<String, JSONObject> children;
-    private List<IJSON> siblings;
-    private int depth;
+    protected Map<String, JSONObject> children;
+    protected List<JSONNode> siblings;
+    protected int depth;
 
     /**
      * Create an empty JSONObject
      */
     public JSONObject() {
         this.children = new HashMap<String, JSONObject>();
-        this.siblings = new ArrayList<IJSON>();
+        this.siblings = new ArrayList<JSONNode>();
         this.depth = 1;
     }
 
     @Override
-    public void put(String key, String value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, String value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
     @Override
-    public void put(String key, int value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, int value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
     @Override
-    public void put(String key, long value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, long value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
     @Override
-    public void put(String key, boolean value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, boolean value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
     @Override
-    public void put(String key, float value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, float value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
     @Override
-    public void put(String key, double value) {
-        IJSON node = new JSONNode(this.depth);
+    public JSONObject put(String key, double value) {
+        JSONNode node = new JSONNode(this.depth + 1);
         node.put(key, value);
         this.siblings.add(node);
+        return this;
     }
 
-    public void put(String key, JSONObject json) {
+    
+
+    public JSONObject put(String key, JSONObject json) {
         this.children.put(key, json);
         this.updateDepth();
+        return this;
     }
 
 
@@ -130,10 +139,14 @@ public class JSONObject implements IJSON {
 
     @Override
     public String toString(int shift) {
-        String result = "{\n";
+        String result = "";
         int i, size;
         IJSON json;
         int shiftLeft = shift * this.depth;
+
+        for(i = 0; i < (shift * this.depth); i++) result += " ";
+        result += "{\n";
+
 
         Set<Map.Entry<String, JSONObject>> set = this.children.entrySet();
         size = this.children.size();
@@ -158,7 +171,7 @@ public class JSONObject implements IJSON {
         }
 
         result += "\n";
-        for(i = 0; i < (this.depth - 1) * shift; i++) result += " ";
+        for(i = 0; i < (this.depth * shift); i++) result += " ";
         result += "}";
         return result;
     }

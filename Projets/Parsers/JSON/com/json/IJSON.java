@@ -3,12 +3,12 @@ package com.json;
 interface IJSON {
 
     /* PUT METHODS */
-    void put(String key, String value);
-    void put(String key, boolean value);
-    void put(String key, int value);
-    void put(String key, long value);
-    void put(String key, float value);
-    void put(String key, double value);
+    IJSON put(String key, String value);
+    IJSON put(String key, boolean value);
+    IJSON put(String key, int value);
+    IJSON put(String key, long value);
+    IJSON put(String key, float value);
+    IJSON put(String key, double value);
 
     void updateDepth(int depth);
 
