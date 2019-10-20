@@ -8,6 +8,7 @@ public class JSONArray extends JSONObject {
         super();
     }
 
+    /* SETTER METHODS */
     public JSONArray put(String value) {
         String key = this.generateChildrenKey();
         this.elements.put(key, new JSONNode(value));
@@ -22,21 +23,70 @@ public class JSONArray extends JSONObject {
     }
 
     public JSONArray put(Number value) {
-        StringBuffer buffer = new StringBuffer().append(value);
         String key = this.generateChildrenKey();
-        this.elements.put(key, new JSONNode(buffer.toString()));
+        this.elements.put(key, new JSONNode(objectToString(value)));
         this.updateDepth();
         return this;
     }
 
     public JSONArray put(boolean value) {
         String key = this.generateChildrenKey();
-        this.elements.put(key, new JSONNode(Boolean.toString(value)));
+        this.elements.put(key, new JSONNode(objectToString(value)));
         return this;
     }
 
+    /* UTILS METHODS */
     private String generateChildrenKey() {
         return Integer.toString(this.elements.size());
+    }
+
+    private static String indexToString(int index) {
+        return Integer.toString(index);
+    }
+
+    /* GETTER METHODS */ 
+    public String getString(int index) {
+        return super.getString(indexToString(index));
+    }
+
+    public int getInt(int index) {
+        return super.getInt(indexToString(index));
+    }
+
+    public long getLong(int index) {
+        return super.getLong(indexToString(index));
+    }
+
+    public boolean getBoolean(int index) {
+        return super.getBoolean(indexToString(index));
+    }
+
+    public float getFloat(int index) {
+        return super.getFloat(indexToString(index));
+    }
+
+    public double getDouble(int index) {
+        return super.getDouble(indexToString(index));
+    }
+
+    public JSONObject getJSONObject(int index) {
+        return super.getJSONObject(indexToString(index));
+    }
+
+    public JSONArray getJSONArray(int index) {
+        return super.getJSONArray(indexToString(index));
+    }
+
+    public boolean has(int index) {
+        return super.has(indexToString(index));
+    }
+
+    public boolean isNull(int index) {
+        return super.isNull(indexToString(index));
+    }
+
+    public Object remove(int index) {
+        return super.remove(indexToString(index));
     }
 
     @Override

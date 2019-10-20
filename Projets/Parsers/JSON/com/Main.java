@@ -5,21 +5,19 @@ public class Main {
 
     public static void testJSONObject() {
         JSONObject json = new JSONObject();
-        JSONArray array = new JSONArray();
-        
-        // json.put("cars", array);
-        // System.out.println(json.toString(2));
-        JSONObject o = new JSONObject()
-            .put("name", "Ford")
-            .put("models", new JSONArray()
-                .put("Fiesta").put("Focus").put("Mustang")
-            );
-        
-        array.put(o);
-        json.put("cars", array);
+        json.put("toto", "titi");
+        System.out.println(json.getString("toto"));
+    }
 
+    public static void testGetter() {
+        JSONObject o = new JSONObject().put("titi", 10);
+        System.out.println(o.getInt("titi"));
 
-        System.out.println(json.toString(2));
+        o.put("toto", new JSONObject().put("titi", 100));
+        System.out.println(o.getJSONObject("toto").toString(2));
+
+        System.out.println(o.keysList().toString());
+        System.out.println(o.keysToJSONArray().toString(2));
     }
 
     public static void testJSONArray() {
@@ -33,6 +31,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        testJSONObject();
+        testGetter();
     }
 }

@@ -1,5 +1,8 @@
 package com.json;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -19,14 +22,14 @@ public class JSONObject extends AbstractJSON {
         this.buffer = "";
     }
 
+    /* SETTERS */
     public JSONObject put(String key, String value) {
         this.elements.put(key, new JSONNode(value));
         return this;
     }
 
     public JSONObject put(String key, Number value) {
-        StringBuffer buffer = new StringBuffer().append(value);
-        this.elements.put(key, new JSONNode(buffer.toString()));
+        this.elements.put(key, new JSONNode(objectToString(value)));
         return this;
     }
 
@@ -41,6 +44,25 @@ public class JSONObject extends AbstractJSON {
         return this;
     }
 
+    public JSONObject put(String key, Collection<?> values) {
+        JSONArray array = new JSONArray();
+        for(Object element : values) {
+            array.put(objectToString(element));
+        }
+
+        this.elements.put(key, array);
+        return this;
+    }
+
+    public JSONObject put(String key, Map<?, ?> values) {
+        values.forEach((Object mapKey, Object value) -> {
+            this.elements.put(mapKey.toString(), new JSONNode(objectToString(value)));
+        });
+
+        return this;
+    }
+
+    /* UTILS METHODS */ 
     public void updateDepth() {
         AbstractJSON json;
         String key;
@@ -57,9 +79,165 @@ public class JSONObject extends AbstractJSON {
         this.updateDepth();
     }
 
+    public Object remove(String key) {
+        AbstractJSON json = this.elements.get(key);
+        if(json == null) return null;
+        return (json instanceof JSONNode) ? getSanitizedValue(json) : json;        
+    }
 
-    public int getDepth() {
-        return this.depth;
+    protected static String objectToString(Object object) {
+        return new StringBuffer().append(object).toString();
+    }
+
+    /* ERROR METHODS */
+    public static final void generateKeyNotFoundError(String key) {
+        throw new JSONException("The object has not object with key \"" + key + "\"");
+    }
+
+    public static final void generateFormatViolationError(String key) {
+        throw new JSONException("The value for the key \"" + key + "\" don't respect the wanted format");
+    }
+
+    /* GETTERS METHODS */
+    public String getString(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        String result = getSanitizedValue(value);
+        return result;
+    }
+
+    private static String getSanitizedValue(AbstractJSON json) {
+        String result = json.toString().replace('"', ' ').trim();
+        return result;
+    }
+
+    public int getInt(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        
+        int result = 0;
+        try {
+            result = Integer.parseInt(getSanitizedValue(value));
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return result;
+    }
+
+    public long getLong(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        
+        long result = 0;
+        try {
+            result = Long.parseLong(getSanitizedValue(value));
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return result;
+    }
+
+    public boolean getBoolean(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        
+        boolean result = false;
+        try {
+            result = Boolean.parseBoolean(getSanitizedValue(value));
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return result;
+    }
+
+    public float getFloat(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        
+        float result = 0.0f;
+        try {
+            result = Float.parseFloat(getSanitizedValue(value));
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return result;
+    }
+
+    public double getDouble(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+        
+        double result = 0.0f;
+        try {
+            result = Double.parseDouble(getSanitizedValue(value));
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return result;
+    }
+
+    public List<String> keysList() {
+        final List<String> keys = new ArrayList<String>();
+        this.elements.forEach((String key, AbstractJSON json) -> {
+            keys.add(key);
+        });
+
+        return keys;
+    }
+
+    public JSONArray keysToJSONArray() {
+        final JSONArray array = new JSONArray();
+        this.elements.forEach((String key, AbstractJSON json) -> {
+            array.put(key);
+        });
+
+        return array;
+    }
+
+    public boolean has(String key) {
+        return this.elements.get(key) != null;
+    }
+
+    public boolean isNull(String key) {
+        return !this.has(key);
+    }
+
+
+    public JSONObject getJSONObject(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+
+        try {
+            JSONObject object = (JSONObject)value;
+            return object;
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return null;
+    }
+
+    public JSONArray getJSONArray(String key) {
+        AbstractJSON value = this.elements.get(key);
+        if(value == null) generateKeyNotFoundError(key);
+
+        try {
+            JSONArray object = (JSONArray)value;
+            return object;
+        } catch(Exception exception) {
+            generateFormatViolationError(key);
+        }
+
+        return null;
+    }
+
+    public int length() {
+        return this.elements.size();
     }
 
     @Override
