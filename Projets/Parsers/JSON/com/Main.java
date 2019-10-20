@@ -34,7 +34,7 @@ public class Main {
     public static void testValidJSON() {
         String json = new StringBuilder()
             .append("{")
-            .append("'car':{'type':'SUV'}, 'lastname':'Terbah','firstname':'Dorian'")
+            .append("'car':{'type':'SUV', 'dimension': {'x':'1'}}, 'lastname':'Terbah','firstname':'Dorian','id':10")
             .append("}")
             .toString();
 

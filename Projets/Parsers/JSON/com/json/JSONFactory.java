@@ -54,18 +54,35 @@ public class JSONFactory {
                 json = copy.substring(tmp.length());
                 if(json.charAt(0) != RIGHT_ACCOLADE && json.charAt(0) != COMMA) throw new JSONException("JSON bad formed");
             } else if (currentChar == LEFT_BRACKET) {
-                JSONArray tmp = new JSONArray();
-                index = parseJSONArray(tmp, json);
-                object.put(key, tmp);
+                JSONArray array = parseJSONArray(json);
+                object.put(key, array);
                 json = json.substring(0, index);
+            } else {
+                // maybe it is a number
+                index = json.indexOf(COMMA);
+                try {
+                    // the number is like "key":number}
+                    index = json.indexOf(RIGHT_ACCOLADE);
+                    value = json.substring(0, index);
+                    double number = Double.parseDouble(value);
+                    object.put(key, number);
+                } catch(Exception exception) {
+                    // the number is like "key":number
+                    index = json.indexOf(RIGHT_ACCOLADE);
+                    value = json.substring(0, index);
+                    double number = Double.parseDouble(value);
+                    object.put(key, number);
+                }
+                
+                json = json.substring(0, index + 1);
             }
         }
 
         return object;
     }
 
-    private static final int parseJSONArray(JSONArray buffer, String json) {
-        return 0;
+    private static final JSONArray parseJSONArray(String json) {
+        return null;
     }
 
     public static final boolean isCorrectJSON(String json) {

@@ -99,24 +99,22 @@ public class JSONArray extends JSONObject {
         this.buffer = "[";
         shift *= this.depth;
 
-        // children
-        AbstractJSON json;
-        int i = 0, limit = this.elements.size() - 1;
-        boolean isJSONObject;
-        
-        for(Map.Entry<String, AbstractJSON> entry : this.elements.entrySet()) {
-            json = entry.getValue();
-            isJSONObject = json instanceof JSONObject;
-            if(isJSONObject) this.buffer += "\n"; 
+        // variable for the forEach method
+        final int[] tmp = { 0 };
+        final int commaLimit = this.elements.size() - 1;
 
-            this.buffer += json.toString(shift);
-            if(i != limit) this.buffer += ",";
+        this.elements.forEach((String key, AbstractJSON value) -> {
+            boolean isJSONObject = value instanceof JSONObject;
+            if(isJSONObject) this.buffer += "\n";
+            this.buffer += value.toString();
+
+            if(tmp[0] != commaLimit) this.buffer += ",";
             else {
                 if(isJSONObject) this.buffer += "\n";
-            }
+            } 
 
-            i++; 
-        }
+            tmp[0]++;
+        });  
 
         this.buffer += "]";
 
