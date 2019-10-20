@@ -111,6 +111,10 @@ public class JSONObject extends AbstractJSON {
         return result;
     }
 
+    private static String sanitizeKey(String key) {
+        return key.replace('"', ' ').trim();
+    }
+
     public int getInt(String key) {
         AbstractJSON value = this.elements.get(key);
         if(value == null) generateKeyNotFoundError(key);
