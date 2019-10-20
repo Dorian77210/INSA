@@ -1,5 +1,6 @@
 import com.json.JSONObject;
 import com.json.JSONArray;
+import com.json.JSONFactory;
 
 public class Main {
 
@@ -17,7 +18,7 @@ public class Main {
         System.out.println(o.getJSONObject("toto").toString(2));
 
         System.out.println(o.keysList().toString());
-        System.out.println(o.keysToJSONArray().toString(2));
+        System.out.println(o.keysToJSONArray().toString());
     }
 
     public static void testJSONArray() {
@@ -30,7 +31,18 @@ public class Main {
 
     }
 
+    public static void testValidJSON() {
+        String json = new StringBuilder()
+            .append("{")
+            .append("'car':{'type':'SUV'}, 'lastname':'Terbah','firstname':'Dorian'")
+            .append("}")
+            .toString();
+
+            JSONObject o = JSONFactory.parse(json);
+            System.out.println(o.toString());
+    }
+
     public static void main(String[] args) {
-        testGetter();
+        testValidJSON();
     }
 }

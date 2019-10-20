@@ -22,7 +22,7 @@
         <mkdir dir="${javadoc}" />
         <mkdir dir="${exe}" />
 
-        <javac srcdir="${com}" destdir="${bin}">
+        <javac srcdir="${com}" destdir="${bin}" debug="on">
             <classpath>
                 <!-- <pathelement path="libs/json.jar" /> -->
                 <!-- <pathelement path="libs/mariadb-java-client-2.3.0.jar" /> -->

@@ -112,7 +112,7 @@ public class JSONObject extends AbstractJSON {
     }
 
     private static String sanitizeKey(String key) {
-        return key.replace('"', ' ').trim();
+        return key.replace('"', ' ').replace('\'', ' ').trim();
     }
 
     public int getInt(String key) {
@@ -246,7 +246,7 @@ public class JSONObject extends AbstractJSON {
 
     @Override
     public String toString() {
-        return this.toString(DEFAULT_SHIFT);
+        return this.toString(0).replaceAll(" ", "").replaceAll("\n", "");
     }
 
     @Override
@@ -257,12 +257,19 @@ public class JSONObject extends AbstractJSON {
         for(i = 0; i < this.depth * shift; i++) this.buffer += " ";
         this.buffer += "{\n";
 
+        final int[] tmp = { 0 };
+        final int commaLimit = this.elements.size() - 1;
+        
         this.elements.forEach((String key, AbstractJSON value) -> {
             for(int j = 0; j < shiftLeft; j++) {
                 this.buffer += " ";
             }
 
-            this.buffer += key + ": " + value.toString(shift) + ",\n";
+            this.buffer += key + ": " + value.toString(shift);
+            if(tmp[0] != commaLimit) this.buffer += ",";
+            this.buffer += "\n";
+
+            tmp[0]++;
         });      
 
         for(i = 0; i < this.depth * shift; i++) this.buffer += " ";
