@@ -91,7 +91,7 @@ public class JSONArray extends JSONObject {
 
     @Override
     public String toString() {
-        return this.toString(0);
+        return this.toString(0).replaceAll(" ", "").replaceAll("\n", "");
     }
 
     @Override
@@ -106,7 +106,14 @@ public class JSONArray extends JSONObject {
         this.elements.forEach((String key, AbstractJSON value) -> {
             boolean isJSONObject = value instanceof JSONObject;
             if(isJSONObject) this.buffer += "\n";
-            this.buffer += value.toString();
+            try {
+                String str = value.toString().replaceAll("\"", ""); 
+                Double.parseDouble(str);
+                this.buffer += str;
+            } catch(Exception exception) {
+                this.buffer += value.toString();
+            }
+
 
             if(tmp[0] != commaLimit) this.buffer += ",";
             else {

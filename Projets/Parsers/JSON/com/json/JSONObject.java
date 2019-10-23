@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.LinkedHashMap;;
 
 public class JSONObject extends AbstractJSON {
 
@@ -17,7 +17,7 @@ public class JSONObject extends AbstractJSON {
      * Create an empty JSONObject
      */
     public JSONObject() {
-        this.elements = new HashMap<String, AbstractJSON>();
+        this.elements = new LinkedHashMap<String, AbstractJSON>();
         this.depth = 0;
         this.buffer = "";
     }

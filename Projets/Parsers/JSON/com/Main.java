@@ -42,7 +42,18 @@ public class Main {
             System.out.println(o.toString());
     }
 
+    public static void testValidArray() {
+        String json = new StringBuilder()
+            .append("{")
+            .append("'dimension':['toto','titi',0]")
+            .append("}")
+            .toString();
+
+        JSONObject o = JSONFactory.parse(json);
+        System.out.println(o.toString());
+    }
+
     public static void main(String[] args) {
-        testValidJSON();
+        testValidArray();
     }
 }
