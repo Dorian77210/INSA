@@ -28,13 +28,12 @@ public class Main {
         array.put(o);
         array.put(o);
         System.out.println(array.toString(2));
-
     }
 
     public static void testValidJSON() {
         String json = new StringBuilder()
             .append("{")
-            .append("'car':{'type':'SUV', 'dimension': {'x':'1'}}, 'lastname':'Terbah','firstname':'Dorian','id':10")
+            .append("'car':'toto'")
             .append("}")
             .toString();
 
@@ -54,6 +53,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        testValidArray();
+        testValidJSON();
     }
 }
