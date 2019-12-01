@@ -1,0 +1,56 @@
+2 1
+
+1 1 A;B;HHHH
+4 2 A;B;6 // prendre longueur
+    2 B;T;5
+        1 1;D;D
+        1 1;D;D
+        1 1;D;D
+        
+
+        1 2;D;D;2
+            ...
+            ...
+        1 1;D;D
+
+
+
+1 1 A;B;GGGG
+2 2 1;B;2
+    1 1 A;F;DDD
+    2 1 F;A;FFF
+
+
+
+1 1 Lyon;Bordeaux;Train
+2 2 Lyon;Paris;[
+    1 Dijon;Villeurbanne;Voiture,
+    2 Tokyo;Paris;[
+        1 A;B;IIIII
+        1 A;D;ssksksk
+        2 A;H;[
+            ....
+        ]
+    ]
+]
+3 ...
+4 ...
+
+Main -> 
+    demander nom du fichier
+        -> s'il existe, demander à l'utilisateur si on ecrase le fichier ou non
+        -> Afficher menu de sauvegarde
+        -> demander le mode de sauvegarde
+            1. -> Sans critere --> catalogue.save(nomFichier)
+            2. -> Le type de trajet
+                -> demander type
+                -> catalogue.save(nomFichier, type)
+
+
+save(ModeSave save)
+{
+
+}
+
+A;D;1
+1 A;D;0
