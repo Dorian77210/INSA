@@ -1,0 +1,2 @@
+Ce test vérifie le comportement de  l’application dans le cas où le fichier contient 
+3 documents. Avec 3<10 et hit(page2)>=hit(page1)>=hit(page3)

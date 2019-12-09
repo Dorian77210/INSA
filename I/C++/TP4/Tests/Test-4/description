@@ -1,0 +1,2 @@
+Ce test vérifie le comportement de  l’application dans le cas où le fichier contient 
+13 documents.Donc 13>10 hit(page13)>=hit(page12)>=hit(page11)>=hit(page10)>=hit(page9)>=hit(page8)=>hit(page7)>=hit(page6)>=hit(page5)=>hit(page4)>=hit(page3)>=hit(page2)>=hit(page1)

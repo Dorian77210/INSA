@@ -1,0 +1,2 @@
+Ce test permet de tester l'option -t avec une heure valide est un fichier de log qui 
+a une extension .log, qui existe et qui n'est pas vide. Cependant, aucune page ne répond au critère de l'heure.

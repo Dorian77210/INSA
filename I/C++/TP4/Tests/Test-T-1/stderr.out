@@ -1,0 +1,2 @@
+Vous avez spécifié l'option -t sans spécifier d'heure.
+Usage : ./analgo <options> -t <hour>

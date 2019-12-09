@@ -1,0 +1,2 @@
+Ce test permet permet de vérifier que l'application affiche une erreur
+si on spécifie l'option -t sans nombre après et sans fichier de log.
