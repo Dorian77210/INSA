@@ -1,0 +1,5 @@
+Digital
+
+POM-Version:       1.0-SNAPSHOT
+Build Git Version: v0.23
+Build Time:        2019-08-23 11:08
