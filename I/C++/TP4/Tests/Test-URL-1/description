@@ -1,0 +1,2 @@
+Ce test test si le top 10 affiche les URLS sans les paramètres. Les pages referers et destinations
+n'auront pas de paramètres dans ce test.

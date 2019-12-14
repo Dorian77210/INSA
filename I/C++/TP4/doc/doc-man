@@ -1,0 +1,38 @@
+analog(1) 			Commandes
+
+NOM
+	./analog - Permet d'analyser un fichier de log Apache et d'extraire les 10 pages le plus consultées.
+
+SYNOPSIS
+	./analog [OPTIONS] ... LOGFILE
+
+DESCRIPTION
+	Analyse un fichier de log (au format .txt ou .log) et en extrait les 10 pages les plus consultées en les filtrant selon les options. La dernière option (obligatoire) doit correspondre au nom du fichier de log.
+	
+	-g <export-file>
+		extrait un graphe de visite des différentes pages présentes dans le log. Le fichier d'export doit avoir une extension en .dot.
+	
+	-t <hour>
+		permet de filtrer les requêtes du fichier de log dont l'heure est dans l'intervalle [hour, hour + 1].
+
+	-e
+		permet de filtrer les requêtes dont la page source et la page destination ne correspondent ni à une image (extension png par exemple), ni à un fichier css javascript.
+
+NOTES
+	Si vous décidez d'exporter votre analyse de log dans un fichier d'extension .dot (pour ensuite générer un graphe) et qu'un fichier du même nom existe déjà, il sera remplacer par le nouveau. Votre fichier sera donc ecrasé.
+	Si les paramètres des options ne sont pas correctes, le programme renverra une erreur sur la sortie d'erreur.
+	
+EXEMPLES
+	Vous trouverez dans cette section plusieurs exemples de lancement du programme.
+	
+	* Ex1 : ./analog fichier.log
+	Cette exemple vous montre comment afficher les 10 pages les plus visitées sur la sortie standard.
+	* Ex2 : ./analog -e fichier.log
+	Cette exemple vous montre comment afficher les 10 pages les plus visitées sur la sortie standard en ne prenant pas en compte les images, les fichiers css et les fichiers javascript.
+	* Ex3 : ./analog -t 10 fichier.log
+	Cette exemple vous montre comment afficher les 10 pages plus visitées sur la sortie standard et ne prenant en compte que les requêtes envoyées entre 10h et 11h.
+	* Ex4 : ./analog -g graph.dot fichier.log
+	Cette exemple vous montre comment afficher les 10 pages plus visitées sur la sortie standard et exporte un graphe de visite dans le fichier "graph.dot".
+
+
+11-12-2019	analog

@@ -69,14 +69,14 @@ public:
         }
 
         // on recuperer les liens
-        unordered_map<uint, Referers*>::const_iterator linksIt;
+        unordered_map<uint, Referers>::const_iterator linksIt;
 
         for ( linksIt = graph.links.begin ( ); linksIt != graph.links.end ( ); ++linksIt )
         {
             uint pageDestinationId = linksIt->first;
-            Referers *currentReferers = linksIt->second;
+            Referers currentReferers = linksIt->second;
 
-            unordered_map<uint, uint> occurences = currentReferers->GetOccurences ( );
+            unordered_map<uint, uint> occurences = currentReferers.GetOccurences ( );
             unordered_map<uint, uint>::iterator occurencesIt;
 
             for ( occurencesIt = occurences.begin ( ); occurencesIt != occurences.end ( ); ++occurencesIt )
@@ -114,7 +114,7 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     unordered_map<string, uint> nodes;
-    unordered_map<uint, Referers*> links;
+    unordered_map<uint, Referers> links;
 //----------------------------------------------------- Attributs protégés
 
 private:

@@ -1,0 +1,2 @@
+Ce test vérifie le comportement de  l’application dans le cas où le fichier passé 
+en paramètres est vide et que l'option -e est utilisée.

@@ -81,6 +81,7 @@ protected:
     bool hasChoosenExportFile;
     string exportFilename;
     string importFilename;
+    string baseURL;
     uint hour;
     Graph graph;
 
@@ -88,7 +89,7 @@ private:
     static const string HOUR_OPTION_FLAG;
     static const string EXPORT_OPTION_FLAG;
     static const string EXCLUDE_FILES_OPTION_FLAG;
-    static const string BASE_INTRANET_URL;
+    static const string CONFIG_FILENAME;
 
     static const uint INVALID_HOUR;
     static const pair<uint, uint> VALID_HOUR_INTERVAL;

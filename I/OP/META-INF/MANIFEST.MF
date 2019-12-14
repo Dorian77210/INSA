@@ -1,0 +1,205 @@
+Manifest-Version: 1.0
+Implementation-Version: 98.5.0.1091879
+Archiver-Version: Plexus Archiver
+Built-By: Software AG
+Permissions: all-permissions
+Specification-Vendor: Software AG
+Build-Jdk: 1.7.0_60
+Created-By: Apache Maven 3.2.5
+Specification-Version: 98.5.0.1091879
+Implementation-Vendor: Software AG
+Main-Class: com.aris.modeling.client.loader.AArisLoader
+
+Name: com/aris/modeling/client/loader/ALocalFileCache.class
+SHA-256-Digest: HtrHxyJrSll6VYECUktU3guzY7r7GYcoNPFVSgB1Uls=
+
+Name: com/aris/modeling/client/loader/loader_pt.properties
+SHA-256-Digest: dQHTVTNJZSj247udZCPsyByXdxRwnW8HGzKCi+ccLXg=
+
+Name: com/aris/modeling/client/loader/ALoaderHelper$1.class
+SHA-256-Digest: gVNEGXXKTCtt6GULDkQPQ9FvI48DitG7gaduR3dZaC8=
+
+Name: com/aris/modeling/client/loader/JarDownloadDialog$2.class
+SHA-256-Digest: 05fIFvo/klAfjO095QvANssoER3o8hx/QG7SdQcYn+o=
+
+Name: com/aris/modeling/client/loader/loader_it.properties
+SHA-256-Digest: rZJ5F5zTdmN3+u2vRLChFz2COdnDFiAsvxPOJU/dZj4=
+
+Name: com/aris/modeling/client/loader/AClassPathAppender.class
+SHA-256-Digest: TK8sDFCGzjNMd5F7/0NXMaBaicMq03ufP3LX4Xpaxcw=
+
+Name: com/aris/modeling/client/loader/readme.txt
+SHA-256-Digest: BJCFTRbwvRBnOhuTSrh9pEToOrV6G6e9oeYvdfR5+IM=
+
+Name: com/aris/modeling/client/loader/loader_cs.properties
+SHA-256-Digest: 4GAL2z/ylN+NSSGFnTOfQli1khjyWBtzMJ+GSrJEOD0=
+
+Name: com/aris/modeling/client/loader/loader.properties
+SHA-256-Digest: tnqdk2HD4Pm2YDJlxlTsRuq53YvJqUTZI+iWI6MsTUA=
+
+Name: com/aris/modeling/client/loader/AAbstactLoader.class
+SHA-256-Digest: 3DHrigYJt2MOYz2abYc2C5G+gtLiVk85fjffdjX4DXU=
+
+Name: com/aris/modeling/client/loader/loader_en.properties
+SHA-256-Digest: ptIjtgHDv8FJLqLXYC10DOpPsX2LD8fWYBnApt3VLD4=
+
+Name: com/aris/modeling/client/loader/loader_nl.properties
+SHA-256-Digest: 34BJn26fvEYw3gXxL+sDkoaD0ns2i6qhNgx/CdotY60=
+
+Name: com/aris/modeling/client/loader/DownloadBaseDialog$2.class
+SHA-256-Digest: p+em34/iU2h7XSE8w2nyUUJS0a/lyks8WRIMudy/afI=
+
+Name: com/aris/modeling/client/loader/AArisAppletUpdate$1.class
+SHA-256-Digest: LMOAl4qwzYMB6zW+qhhKkvewtmwt6CRdYYQwSkXOEN0=
+
+Name: com/aris/modeling/client/loader/loader_tr.properties
+SHA-256-Digest: 0AbIkHGFx7lpZEBVbkaC2NuLiB+8zmfIoBhUwCHhJ6I=
+
+Name: com/aris/modeling/client/loader/IClientStub.class
+SHA-256-Digest: NlE596dj5oNua8ATwTtuqKuOn3jGBkybcX3fHbk2nwA=
+
+Name: com/aris/modeling/client/loader/loader_en.properties.4loc
+SHA-256-Digest: GU0iIYSAmUioA+Hclop53ohRlO1tNiPqhCyqnCkaqeI=
+
+Name: com/aris/modeling/client/loader/DebugTool.class
+SHA-256-Digest: gQgRQoJelMnRaW8FcGMYW0nKAVikUqWJysZxmTvS3IE=
+
+Name: com/aris/modeling/client/loader/loader_es.properties
+SHA-256-Digest: ufrc5xgpQ31K85N47raL39DIGVrnbXuRH/m9pl8ZP38=
+
+Name: com/aris/modeling/client/loader/AProxyUserDialog$1.class
+SHA-256-Digest: XtDavuBz496b3ra68NLkvH9U7f5nBCj5qubN/zmq3Mk=
+
+Name: com/aris/modeling/client/loader/AArisAppletUpdate$MyRunnable.cla
+ ss
+SHA-256-Digest: 1OzKxE5c+O3MXOgLZnInGgF5R10QHxVpHSOrpSAnfgg=
+
+Name: com/aris/modeling/client/loader/DownloadBaseDialog$1.class
+SHA-256-Digest: J4PEZaGKqi2wuf0Qa7zSgNV04A9MLGijkN2dRSMYA8c=
+
+Name: com/aris/modeling/client/loader/loader_de.properties
+SHA-256-Digest: NaUxe3N5WJ4C87DsREWBfArQcfqqCxvnH7lKxhNJ5/Y=
+
+Name: com/aris/modeling/client/loader/ProxyAuthenticator.class
+SHA-256-Digest: UbRd2f/IHgz0PUOCkxjhe+jtjNjP0A9p/GPXBCbjetY=
+
+Name: com/aris/modeling/client/loader/ALoaderHelper.class
+SHA-256-Digest: tvQGNVW8XvdercinoSI2h58zA6w+I/qo9yiEMd2lLI4=
+
+Name: com/aris/modeling/client/loader/IApplication.class
+SHA-256-Digest: lZfUnWfHmnycCgnIITSi3Q1KD1/mLocA6WjCCPbdT90=
+
+Name: com/aris/modeling/client/loader/DownloadBaseDialog$3.class
+SHA-256-Digest: BcycAJjlX/qrfuRCwdR4sGksuoWKn53pDJ1jPMxfgmI=
+
+Name: com/aris/modeling/client/loader/loader_hu.properties
+SHA-256-Digest: IwE0qE2cDyYsGB37WUVZ99mdx8eSLO5t98HPO26q4us=
+
+Name: com/aris/modeling/client/loader/IDownloadDialog.class
+SHA-256-Digest: 2hK2z5+8CU7PsqmlNc0EvIo0o5cXomLih3lyjzQUdtY=
+
+Name: com/aris/modeling/client/loader/loader_de.properties.4loc
+SHA-256-Digest: Peh6/QmU47R8cbWp5Si3k5G9ET3S29E72bmh1BiO5xw=
+
+Name: com/aris/modeling/client/loader/loader_fr.properties
+SHA-256-Digest: uJesBPnf+M2JQ9SiLnHynAQTjTrpd3S5Zvreu5ENpqY=
+
+Name: com/aris/modeling/client/loader/DownloadBaseDialog.class
+SHA-256-Digest: HNtN5UNHDGDj+JPPpV5ZthVBv3Zh5lMbBZTDG5KOqi8=
+
+Name: com/aris/modeling/client/loader/loader_ar.properties
+SHA-256-Digest: wzfLiOHVuuXo1sZngiGNyPmmGgZx9uyL0T/VIRfMM6E=
+
+Name: com/aris/modeling/client/loader/JarDownloadDialog.class
+SHA-256-Digest: FBJq0yAFoKze7ypO6HESyXeW/F+wpvf6pYGfJ9rb0oo=
+
+Name: com/aris/modeling/client/loader/ALinkButton.class
+SHA-256-Digest: C0V1QjqDWRF3s/rGOeK/LTHOEZ+9A3/qMWb5n7sZSzw=
+
+Name: com/aris/modeling/client/loader/loader_zh.properties
+SHA-256-Digest: G16DbOBFi+RDA4rEFbff5HvdSFLxMriXEzzFl1L6z3A=
+
+Name: com/aris/modeling/client/loader/AAbstactUpdate$1.class
+SHA-256-Digest: XFDVwvspHVXMRt6FA+rvTqECaaQ0bz4/6b+nWgTpmA0=
+
+Name: com/aris/modeling/client/loader/AArisLoader.class
+SHA-256-Digest: 1WjJS+kENOEPJuwOrKp5AudsouJkQrbjeQu8oqZ4w0Y=
+
+Name: com/aris/modeling/client/loader/ALoaderException.class
+SHA-256-Digest: qMZ5qNKq8wEAwXTZoBsSjKcyJ/DO7xmxO+v5HPDaXnk=
+
+Name: com/aris/modeling/client/loader/loader_ja.properties
+SHA-256-Digest: wOCvEzvJLNTcIQ7Z2hMhQHGvQmPSpWPUKofPci84CkU=
+
+Name: com/aris/modeling/client/loader/AArisUpdate.class
+SHA-256-Digest: +qVX1QwHbbWGdP+OZdKw1uEouGsk7uSK4rHAXI13OZo=
+
+Name: com/aris/modeling/client/loader/loader_uk.properties
+SHA-256-Digest: 02GRpmKp8vez6/Wh+2OpWBUew7X20SE5Ve4ZZtt0Pvw=
+
+Name: com/aris/modeling/client/loader/AArisLoader$1$1.class
+SHA-256-Digest: t/xLOIke7S6bDC8OkY0vRvZ9U1ETj53518Wa6kzp5dA=
+
+Name: com/aris/modeling/client/loader/loader_sk.properties
+SHA-256-Digest: Oya0eEAu5c6ozOUuZLZI7co2UvkhX530CKSvXeaVO90=
+
+Name: com/aris/modeling/client/loader/AApplicationStub.class
+SHA-256-Digest: jkup7wc69LWcJ+E9mHZpa49MTo4PkJ4KHatSxuR8IOI=
+
+Name: com/aris/modeling/client/loader/AConfig.class
+SHA-256-Digest: zltGpBN1v3bFv5txbHVBP7ob1N21qWuaFjKBm7qIiA4=
+
+Name: com/aris/modeling/client/loader/IArisSystemProperties.class
+SHA-256-Digest: uA8m6P5V+bdcriFMBnQ0YwR+2yucMbe12z4GW6fzors=
+
+Name: com/aris/modeling/client/loader/loader.properties.4doc
+SHA-256-Digest: tnqdk2HD4Pm2YDJlxlTsRuq53YvJqUTZI+iWI6MsTUA=
+
+Name: com/aris/modeling/client/loader/userhome.properties
+SHA-256-Digest: s7FNVvZDcGuiDCorRrZK4Kyk0vuqocnxRfieh1qX2Vk=
+
+Name: com/aris/modeling/client/loader/loader_pl.properties
+SHA-256-Digest: u+hCAXNXRK8mFqJCf6oHN7Ua7JjEwc/h7zbiNyW2Rzw=
+
+Name: com/aris/modeling/client/loader/loader_fi.properties
+SHA-256-Digest: R/6M5S+J0EpHTcL756xmFHRsLcM5V1QmkU/nQPzv7sE=
+
+Name: com/aris/modeling/client/loader/AWindowsRegistryReader.class
+SHA-256-Digest: C9hJ/eMMxSko/oLyg3mHP+GourjCUbRmznuDNF+S2eE=
+
+Name: com/aris/modeling/client/loader/DownloadDialog.class
+SHA-256-Digest: FIJJ5f+wq+CRIj2CdSVB9fcFKnw+qbTePGev0UKR//I=
+
+Name: com/aris/modeling/client/loader/AAbstractClientStub.class
+SHA-256-Digest: 3fIXTJxM7aAFczC4pP1yvaPppQ/FRtCyg3I3UyIdkug=
+
+Name: com/aris/modeling/client/loader/loader_ru.properties
+SHA-256-Digest: jFu6yTkMCFBK1IHINCIh5FmO8AHxuw6E0B5m+o5Qdec=
+
+Name: com/aris/modeling/client/loader/Splash_Screen_ARIS.png
+SHA-256-Digest: Gac/2S1FnN++Qv/YeuCh7eGp3YxKTPRY0SThJIhkyB0=
+
+Name: com/aris/modeling/client/loader/AArisAppletUpdate.class
+SHA-256-Digest: E6/iy8KJ/ZaCEIQf4yARuhspUBV303Lg//DlCiY9O/w=
+
+Name: com/aris/modeling/client/loader/AProxyProvider.class
+SHA-256-Digest: uqRXfSBAbBg3yFYJgdv2wCr0dNCBdGWWK5q/2cKVReE=
+
+Name: com/aris/modeling/client/loader/AArisLoader$1.class
+SHA-256-Digest: 5DSSaUgdFCbHcWYaGWARI3EGHABQyQis7Ekn4AlIw/E=
+
+Name: com/aris/modeling/client/loader/JarDownloadDialog$1.class
+SHA-256-Digest: L3W3e0f4yRUaWIqlrXXdZamr3o1x+2OYT8lYXNk+8RI=
+
+Name: com/aris/modeling/client/loader/DownloadInfo.class
+SHA-256-Digest: vemHHnIuz0buMuZvauxHDUBCrFkckOwREeofl+OTC68=
+
+Name: com/aris/modeling/client/loader/AAbstactUpdate.class
+SHA-256-Digest: mo6Jn1K3cMySnoV2gXdqtWCnun23vVmfYrBX/OwMBhI=
+
+Name: com/aris/modeling/client/loader/AProxyUserDialog$2.class
+SHA-256-Digest: vJwJSqjUUtC8H2IAIvpNWH2c0ZjpWD2ZB8wbGx29V6s=
+
+Name: com/aris/modeling/client/loader/AProxyUserDialog.class
+SHA-256-Digest: 0hFUKvD9pUQgIt3SIrFDH8R28gZR6MDPbX/yUcCGRLQ=
+

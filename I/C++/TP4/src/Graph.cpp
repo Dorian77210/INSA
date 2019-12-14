@@ -26,14 +26,13 @@ void Graph::AddDocument ( string pageDestination, string pageReferer )
 // Algorithme : aucun
 {
     uint pageDestinationId, pageRefererId;
-    Referers *referers  = nullptr;
 
     // récupération ou création de l'id de la page destination
     if ( nodes.find ( pageDestination ) == nodes.end ( ) )
     {
         // la page n'est pas un noeud
         pageDestinationId = nodes.size ( );
-        nodes.emplace ( pageDestination, pageDestinationId );
+        nodes [ pageDestination ] = pageDestinationId;
     } else
     {
         pageDestinationId = nodes [ pageDestination ];
@@ -44,23 +43,15 @@ void Graph::AddDocument ( string pageDestination, string pageReferer )
     {
         // la page n'est pas un noeud
         pageRefererId = nodes.size ( );
-        nodes.emplace ( pageReferer, pageRefererId );
+        nodes [ pageReferer ] = pageRefererId;
     } else
     {
         pageRefererId = nodes [ pageReferer ];
     }
 
-    // récupèration du referers
-    if ( links.find ( pageDestinationId ) == links.end ( ) )
-    {
-        referers = new Referers ( );
-        links.emplace ( pageDestinationId, referers );
-    } else
-    {
-        referers = links [ pageDestinationId ];
-    }
 
-    referers->AddReferer ( pageRefererId );
+    links [ pageDestinationId ].AddReferer ( pageRefererId );
+
 } // ----- Fin de AddDocument
 
 string Graph::GetNBest ( uint n )
@@ -69,14 +60,14 @@ string Graph::GetNBest ( uint n )
     string buffer;
     multimap<uint, uint> ranking;
     uint i, pageDestinationId, hits;
-    unordered_map<uint, Referers*>::iterator it;
+    unordered_map<uint, Referers>::iterator it;
     unordered_map<string, uint>::iterator nodesIt;
     string page;
 
     for ( it = links.begin ( ); it != links.end ( ); ++it )
     {
-        const Referers *link = it->second;
-        ranking.emplace ( link->GetTotal ( ), it->first );
+        const Referers link = it->second;
+        ranking.emplace ( link.GetTotal ( ), it->first );
     }
 
     // on affiche au maximum les dix pages les plus visitées
@@ -119,10 +110,6 @@ Graph::Graph ( )
 Graph::~Graph ( )
 // Algorithme : aucun
 {
-    for ( unordered_map<uint, Referers*>::iterator it = links.begin ( ); it != links.end ( ); ++it )
-    {
-        delete it->second;
-    }
 } // ------ Fin du destructeur de Graph
 
 

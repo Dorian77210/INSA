@@ -25,7 +25,7 @@ const string FileIO::IMPORT_TXT_EXTENSION = "txt";
 const string FileIO::IMPORT_LOG_EXTENSION = "log";
 const string FileIO::EXPORT_FILE_EXTENSION = "dot";
 const vector<string> FileIO::EXCLUDING_FILES_EXTENSION = {
-    "png", "jpg", "gif", "css", "js", "jpeg"
+    "png", "jpg", "gif", "css", "js", "jpeg", "ico", "btm"
 };
 //----------------------------------------------------------------- PUBLIC
 

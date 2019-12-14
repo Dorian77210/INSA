@@ -1,0 +1,2 @@
+Ce test vérifie le comportement de  l’application dans le cas où le fichier contient 
+4 destinations de type image "png","jpg","gif" et "jpeg"  ainsi que 2 documents de type "js" et "css"  dont les refferers sont valides et que l'option -e est utilisée.

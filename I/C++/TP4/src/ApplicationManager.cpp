@@ -28,8 +28,7 @@ using namespace std;
 const string ApplicationManager::HOUR_OPTION_FLAG = "-t";
 const string ApplicationManager::EXPORT_OPTION_FLAG = "-g";
 const string ApplicationManager::EXCLUDE_FILES_OPTION_FLAG = "-e";
-const string ApplicationManager::BASE_INTRANET_URL = "http://intranet-if.insa-lyon.fr/";
-
+const string ApplicationManager::CONFIG_FILENAME = "config.dat";
 const uint ApplicationManager::INVALID_HOUR = 0xFFFFFFFF;
 const pair<uint, uint> ApplicationManager::VALID_HOUR_INTERVAL = pair<uint, uint>(0, 24);
 
@@ -49,7 +48,7 @@ bool ApplicationManager::Configure(uint argc, const char **args)
     }
 
     // on ne boucle pas sur le fichier
-    for (uint i(0); i < argc; i++)
+    for (uint i(0); i < argc - 1; i++)
     {
         currentArgument = args[i];
         if (currentArgument == HOUR_OPTION_FLAG) // heure
@@ -66,7 +65,7 @@ bool ApplicationManager::Configure(uint argc, const char **args)
 
                 if ( i + 1 == ( argc - 1 ) )
                 {
-                    cerr << "Vous devez spécifié une heure avec l'option -t. Le dernier paramètre doit correspondre au nom du fichier." << endl;
+                    cerr << "Vous devez spécifier une heure avec l'option -t. Le dernier paramètre doit correspondre au nom du fichier." << endl;
                     return false;
                 }
                 
@@ -114,7 +113,7 @@ bool ApplicationManager::Configure(uint argc, const char **args)
                 string filename = args[++i];
                 if (!FileIO::IsValidExportFileExtension(filename))
                 {
-                    cerr << "Le fichier d'export doit avoir une extension en .dot. Le fichier " << currentArgument
+                    cerr << "Le fichier d'export doit avoir une extension en .dot. Le fichier " << filename
                          << " ne possède pas cette extension." << endl;
                     return false;
                 }
@@ -138,6 +137,14 @@ bool ApplicationManager::Configure(uint argc, const char **args)
             {
                 isExcludingFiles = true;
             }
+        } else
+        {
+            cout << "Le paramètre " << currentArgument << " est invalide.  Les options possibles : " << endl;
+            cout << "\t * -e pour ne pas prendre en compte les fichiers images, css et javascript." << endl;
+            cout << "\t * -t <hour> pour ne prendre que les logs dans l'intervalle [hour, hour+1]." << endl;
+            cout << "\t * -g <filename> pour exporter le graphe dans un fichier d'extension .dot" << endl;
+            
+            return false;
         }
     }
 
@@ -151,6 +158,14 @@ bool ApplicationManager::Configure(uint argc, const char **args)
     }
 
     importFilename = currentArgument;
+
+    // récupèration de l'url de base
+    baseURL = FileIO::ReadFile ( CONFIG_FILENAME );
+    if ( baseURL.empty () )
+    {
+        cerr << "Le fichier de configuration " << CONFIG_FILENAME << " est vide ou n'existe pas. Vérifier que le fichier existe ou qu'il n'est pas vide." << endl;
+        return false;
+    }
 
     return true;
 } // ------ Fin de Configure
@@ -267,9 +282,9 @@ bool ApplicationManager::ExecuteAnalyze()
         }
 
         // on vérifie que l'url de l'intranet est présente dans le referer, auquel on retire la base url
-        if ( currentReferer.find ( BASE_INTRANET_URL ) == 0 )
+        if ( currentReferer.find ( baseURL ) == 0 )
         {
-            currentReferer = currentReferer.substr ( BASE_INTRANET_URL.length ( ) );
+            currentReferer = currentReferer.substr ( baseURL.length ( ) );
         }
 
         if (isExcludingFiles)

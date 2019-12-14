@@ -1,0 +1,1 @@
+Ce test vérifie le comportement de l’application dans le cas où le paramètre est un fichier d'une extension invalide (ni .txt ni .log)

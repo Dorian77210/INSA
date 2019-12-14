@@ -1,1 +1,1 @@
-./analog -g fic.dot fic.log
+../../analog -g fic.dot fic.log

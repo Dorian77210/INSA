@@ -39,7 +39,7 @@ void Referers::AddReferer ( uint referer )
     if ( occurences.find ( referer ) == occurences.end ( ) )
     {
         // on ajoute
-        occurences.emplace ( referer, 1 );
+        occurences [ referer ] = 1;
     } else
     {
         occurences [ referer ]++;

@@ -2,3 +2,6 @@
 bin/*
 analog
 analgo
+*.png
+*.dot
+todo
