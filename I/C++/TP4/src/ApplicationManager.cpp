@@ -43,7 +43,7 @@ bool ApplicationManager::Configure(uint argc, const char **args)
 
     if (argc == 0)
     {
-        cerr << "Usage : ./analgo <options>." << endl;
+        cerr << "Usage : ./analog <options> <log>." << endl;
         return false;
     }
 
